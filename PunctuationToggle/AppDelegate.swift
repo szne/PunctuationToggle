@@ -24,6 +24,9 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
             .sink { [weak self] _ in
                 self?.statusItem?.button?.title = self?.manager.currentLabel ?? ""
             }
+
+        // 起動時にバックグラウンドでアップデート確認（最新版なら無音）
+        UpdateChecker.checkForUpdates(silentIfLatest: true)
     }
 
     // MARK: - Click handling
@@ -66,6 +69,14 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         settingsItem.target = self
         menu.addItem(settingsItem)
 
+        let updateItem = NSMenuItem(
+            title: "アップデートを確認...",
+            action: #selector(checkForUpdates),
+            keyEquivalent: ""
+        )
+        updateItem.target = self
+        menu.addItem(updateItem)
+
         menu.addItem(.separator())
 
         let quitItem = NSMenuItem(
@@ -85,6 +96,10 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
 
     @objc private func toggleFromMenu() {
         manager.toggle()
+    }
+
+    @objc private func checkForUpdates() {
+        UpdateChecker.checkForUpdates(silentIfLatest: false)
     }
 
     @objc private func openSettings() {
