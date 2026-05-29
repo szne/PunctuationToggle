@@ -1,4 +1,5 @@
 import SwiftUI
+import ServiceManagement
 
 struct SettingsView: View {
     @ObservedObject var manager: PunctuationManager
@@ -6,6 +7,7 @@ struct SettingsView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
 
+            // MARK: モード選択
             Text("トグルするモードを選択")
                 .font(.headline)
 
@@ -18,8 +20,6 @@ struct SettingsView: View {
                                 .frame(width: 36, alignment: .leading)
                             Text(mode.detail)
                                 .font(.system(size: 13))
-                                // secondary にしない → disabled 行だけが SwiftUI の
-                                // 自動グレーアウトで薄くなり、未チェック行は通常色のまま
                         }
                     }
                     .toggleStyle(.checkbox)
@@ -42,12 +42,19 @@ struct SettingsView: View {
                     .foregroundColor(.red)
                     .font(.caption)
             }
+
+            Divider()
+
+            // MARK: ログイン時起動
+            Toggle("ログイン時に自動起動", isOn: launchAtLoginBinding)
+                .toggleStyle(.checkbox)
+
         }
         .padding(20)
         .frame(width: 320)
     }
 
-    // MARK: - Helpers
+    // MARK: - Bindings
 
     private func binding(for mode: PunctuationMode) -> Binding<Bool> {
         Binding(
@@ -55,6 +62,28 @@ struct SettingsView: View {
             set: { manager.setMode(mode, enabled: $0) }
         )
     }
+
+    /// ログイン時起動の Binding（SMAppService で読み書き）
+    private var launchAtLoginBinding: Binding<Bool> {
+        Binding(
+            get: {
+                SMAppService.mainApp.status == .enabled
+            },
+            set: { enable in
+                do {
+                    if enable {
+                        try SMAppService.mainApp.register()
+                    } else {
+                        try SMAppService.mainApp.unregister()
+                    }
+                } catch {
+                    print("Launch at login error: \(error.localizedDescription)")
+                }
+            }
+        )
+    }
+
+    // MARK: - Helpers
 
     /// 有効なモードが 2 つしかない場合、チェック済みのものは外せないようにする
     private func isDisabled(_ mode: PunctuationMode) -> Bool {
