@@ -1,5 +1,6 @@
 import AppKit
 import Combine
+import SwiftUI
 
 final class AppDelegate: NSObject, NSApplicationDelegate {
     private var statusItem: NSStatusItem?
