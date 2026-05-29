@@ -11,6 +11,8 @@
 		AA000000000000000000ABF2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000000000000000000AFF3 /* AppDelegate.swift */; };
 		AA000000000000000000ABF3 /* PunctuationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000000000000000000AFF4 /* PunctuationManager.swift */; };
 		AA000000000000000000ABF4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA000000000000000000AFF5 /* Assets.xcassets */; };
+		AA000000000000000000ABF5 /* PunctuationMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000000000000000000AFF8 /* PunctuationMode.swift */; };
+		AA000000000000000000ABF6 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000000000000000000AFF9 /* SettingsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +23,8 @@
 		AA000000000000000000AFF5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AA000000000000000000AFF6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AA000000000000000000AFF7 /* PunctuationToggle.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PunctuationToggle.entitlements; sourceTree = "<group>"; };
+		AA000000000000000000AFF8 /* PunctuationMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PunctuationMode.swift; sourceTree = "<group>"; };
+		AA000000000000000000AFF9 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +55,8 @@
 				AA000000000000000000AFF5 /* Assets.xcassets */,
 				AA000000000000000000AFF6 /* Info.plist */,
 				AA000000000000000000AFF7 /* PunctuationToggle.entitlements */,
+				AA000000000000000000AFF8 /* PunctuationMode.swift */,
+				AA000000000000000000AFF9 /* SettingsView.swift */,
 			);
 			path = PunctuationToggle;
 			sourceTree = "<group>";
@@ -135,6 +141,8 @@
 				AA000000000000000000ABF1 /* PunctuationToggleApp.swift in Sources */,
 				AA000000000000000000ABF2 /* AppDelegate.swift in Sources */,
 				AA000000000000000000ABF3 /* PunctuationManager.swift in Sources */,
+				AA000000000000000000ABF5 /* PunctuationMode.swift in Sources */,
+				AA000000000000000000ABF6 /* SettingsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
