@@ -17,8 +17,9 @@ struct SettingsView: View {
                                 .font(.system(size: 15, design: .monospaced))
                                 .frame(width: 36, alignment: .leading)
                             Text(mode.detail)
-                                .foregroundColor(.secondary)
                                 .font(.system(size: 13))
+                                // secondary にしない → disabled 行だけが SwiftUI の
+                                // 自動グレーアウトで薄くなり、未チェック行は通常色のまま
                         }
                     }
                     .toggleStyle(.checkbox)
