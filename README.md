@@ -30,20 +30,11 @@ macOS のメニューバーに常駐し、日本語 IME の句読点スタイル
 
 ### リリース版をダウンロード（推奨）
 
-1. [Releases](https://github.com/szne/PunctuationToggle/releases) から最新の `PunctuationToggle.app.zip` をダウンロード
-2. 解凍して `.app` を `/Applications` などに移動
+1. [最新のリリース](https://github.com/szne/PunctuationToggle/releases/latest) からバージョン番号付きのZIPをダウンロード
+2. 解凍して `PunctuationToggle.app` を「アプリケーション」フォルダへ移動
 3. ダブルクリックで起動
 
-> **初回起動時の Gatekeeper 警告について**
->
-> 「開発元を確認できない」という警告が出る場合、以下のどちらかで回避できます。
->
-> **方法 A（簡単）**: Finder でアプリを **右クリック → 「開く」** → 「開く」をクリック
->
-> **方法 B（ターミナル）**: 以下を実行してから通常どおりダブルクリック
-> ```bash
-> xattr -cr /Applications/PunctuationToggle.app
-> ```
+v1.1.0の配布版はDeveloper IDで署名し、Appleの公証を受けています。
 
 ### ソースからビルド
 
